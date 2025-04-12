@@ -1,18 +1,36 @@
 -- Installs VenvSelector for selecting Python virtual environments https://github.com/linux-cultist/venv-selector.nvim
 return {
-  "linux-cultist/venv-selector.nvim",
-  dependencies = {
-    "neovim/nvim-lspconfig",
+  -- Setup Nvim DAP for Python using uv under the hood
+  {
     "mfussenegger/nvim-dap",
-    "mfussenegger/nvim-dap-python",
-    { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    config = function()
+      local dap_python = require("dap-python")
+      dap_python.setup("uv")
+    end,
   },
-  lazy = false,
-  branch = "regexp", -- This is the regexp branch, use this for the new version
-  keys = {
-    { ",v", "<cmd>VenvSelect<cr>" },
+  -- Setup key group for virtualenv commands
+  {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        { "<leader>v", group = "virtualenv" },
+      },
+    },
   },
-  opts = {
-    -- Your settings go here
+  -- Installs VenvSelector for selecting Python virtual environments
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python",
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    },
+    lazy = false,
+    branch = "regexp", -- This is the regexp branch, use this for the new version
+    keys = {
+      { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select VirtualEnv" },
+    },
+    opts = {},
   },
 }
