@@ -2,13 +2,13 @@
 
 My Nvim+Lazy.Vim config.
 
-## Use for yourself:
+## Use for yourself
 
 ```shell
-git clone https://github.com/Flexicon/nvim-config.git ~/.config/nvim
+git clone git@github.com:Flexicon/nvim-config.git ~/.config/nvim
 ```
 
-## Based on:
+## Based on
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
