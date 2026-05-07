@@ -13,7 +13,7 @@ return {
         css = frontend_formatters,
         html = frontend_formatters,
         json = frontend_formatters,
-        yaml = frontend_formatters,
+        yaml = { "prettier" },
         python = { "ruff_format" },
       },
     },
