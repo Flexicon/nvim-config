@@ -1,7 +1,6 @@
 local frontend_formatters = { "biome", "prettier", stop_after_first = true }
 
 return {
-  -- Configure conform.nvim to use ruff for Python formatting
   {
     "stevearc/conform.nvim",
     opts = {
@@ -15,6 +14,8 @@ return {
         json = frontend_formatters,
         yaml = { "prettier" },
         python = { "ruff_format" },
+        markdown = {},
+        ["markdown.mdx"] = {},
       },
     },
   },
